@@ -1,24 +1,24 @@
 COMPLETE STATS ANALYSIS over 100 simulations:
 
-Average game lenght: 409.95 +/- 124.44
-Median game lenght: 410.0
-Mode game lenght: 441
-Max game lenght: 753
-Min game lenght: 134
+Average game lenght: 435.53 +/- 132.41
+Median game lenght: 431.5
+Mode game lenght: 543
+Max game lenght: 761
+Min game lenght: 205
 
-Average final budget: 15702.02 +/- 2894.79
-Median final budget: 16050.0
-Mode final budget: 16898
-Max final budget: 21203
-Min final budget: 7625
+Average final budget: 15805.49 +/- 2808.69
+Median final budget: 15791.5
+Mode final budget: 15530
+Max final budget: 21508
+Min final budget: 5695
 
-Over Cashed (bank finishes available cash): 20.00 %
+Over Cashed (bank finishes available cash): 21.00 %
 
-Average houses per location (excluding zeros): 3.17 +/- 0.62
+Average houses per location (excluding zeros): 3.30 +/- 0.60
 
-Average visits per location: 10.25 +/- 0.38
+Average visits per location: 10.89 +/- 0.41
 
-Average gain per property: 1331.98 +/- 930.32
+Average gain per property: 1575.65 +/- 1131.97
 
-Average gain per color: 3729.53 +/- 2052.48
+Average gain per color: 4411.81 +/- 2574.06
 
