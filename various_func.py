@@ -17,6 +17,7 @@ Functions:
 
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 from prop_and_loc import loc_list, prop_list, dict_by_color, properties, locations, community_chest_cards, chance_cards
 
 
@@ -26,7 +27,7 @@ from prop_and_loc import loc_list, prop_list, dict_by_color, properties, locatio
 
 # def print_resume(txtFile):
 def print_resume(file_path, start_text, end_text):
-    with open(file_path, 'r', encoding='utf-8') as file:
+    with open(file_path, 'w+', encoding='utf-8') as file:
         inside_range = False
         for line in file:
             if start_text in line:

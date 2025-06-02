@@ -112,8 +112,6 @@ def init_player(num_pl, ROI_type):
                 GameResume["properties_owned"].append(dead_prop)
                 # GAME OVER
 
-
-
         def prop_types(self):
             loc_type = locations[self.location]["type"]
             

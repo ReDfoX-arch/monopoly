@@ -54,7 +54,7 @@ class analiser:
             plt.close()
         
         else:
-            directory = os.path.join(f"{self.ROI_type}", "var", f"{self.num_players}_pl")
+            directory = os.path.join(f"{self.ROI_type}", "var", filename)
             if not os.path.exists(directory):
                 os.makedirs(directory)
             plt.savefig(os.path.join(directory, f"{filename}_{self.num_players}_players.png"), bbox_inches='tight')
@@ -91,7 +91,7 @@ class analiser:
         num_sim = self.num_sim
         data = self.over_cashed
 
-        print(f"Over Cashed (bank finishes available cash): {np.count_nonzero(data) / num_sim * 100:.2f} %\n")
+        print(f"Over Cashed (bank finishes available cash): {np.count_nonzero(data) / num_sim * 100:.2f} %")
 
         over_np = np.array(data)
         num_true = np.count_nonzero(over_np)  # Count True values
@@ -118,7 +118,7 @@ class analiser:
         data = self.loc_visits
         num_sim = self.num_sim
 
-        print(f"Average visits per location: {np.mean(list(data.values())) / num_sim:.2f} +/- {np.std(list(data.values())) / num_sim:.2f}\n")
+        print(f"Average visits per location: {np.mean(list(data.values())) / num_sim:.2f} +/- {np.std(list(data.values())) / num_sim:.2f}")
 
         loc_keys = []
         loc_visits = []
@@ -183,7 +183,7 @@ class analiser:
         data = self.house_visits
         num_sim = self.num_sim
         non_zero_values = [value for value in data.values() if value > 0]
-        print(f"Average houses per location (excluding zeros): {np.mean(non_zero_values) / num_sim:.2f} +/- {np.std(non_zero_values) / num_sim:.2f}\n")
+        print(f"Average houses per location (excluding zeros): {np.mean(non_zero_values) / num_sim:.2f} +/- {np.std(non_zero_values) / num_sim:.2f}")
 
         house_keys = []
         house_visits = []
@@ -219,7 +219,7 @@ class analiser:
         data = self.gain4prop
         num_sim = self.num_sim
 
-        print(f"Average gain per property: {np.mean(list(data.values())) / num_sim:.2f} +/- {np.std(list(data.values())) / num_sim:.2f}\n")
+        print(f"Average gain per property: {np.mean(list(data.values())) / num_sim:.2f} +/- {np.std(list(data.values())) / num_sim:.2f}")
 
         prop_keys = []
         prop_visits = []
@@ -254,7 +254,7 @@ class analiser:
         data = self.gain4color
         num_sim = self.num_sim        
         
-        print(f"Average gain per color: {np.mean(list(data.values())) / num_sim:.2f} +/- {np.std(list(data.values())) / num_sim:.2f}\n")
+        print(f"Average gain per color: {np.mean(list(data.values())) / num_sim:.2f} +/- {np.std(list(data.values())) / num_sim:.2f}")
 
         color_keys = []
         color_visits = []
@@ -287,10 +287,18 @@ class analiser:
 
     def complete_analysis (self):
         if self.save:
-            print(f'Report inside file "output_{self.ROI_type}.txt"')
-            game_over = '********* G A M E   O V E R *********'
+            file_name = f"GameResume_{self.ROI_type}_{self.num_players}pl.txt"
+            an_type = "single" if self.single else "var"
+            
+            # folder path
+            folder_path = os.path.join(self.ROI_type, an_type, f"{self.num_players}_pl") if self.single else os.path.join(self.ROI_type, an_type, "GameResume")
+            address = os.path.join(folder_path, file_name)  # complete path of the file
 
-            with open(f"output_{self.ROI_type}.txt", "w", encoding="utf-8") as f:
+            # create the folder if doesn't exist
+            os.makedirs(folder_path, exist_ok=True)
+            print(f'Report inside file "{address}"')
+
+            with open(address, "w", encoding="utf-8") as f:
                 original_stdout = sys.stdout  # Save the original value of sys.stdout
                 sys.stdout = f
                 try:
