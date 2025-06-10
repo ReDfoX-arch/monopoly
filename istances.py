@@ -136,7 +136,7 @@ def init_player(num_pl, ROI_type):
                 self.buy()
             
         def buy(self):
-            if self.balance - properties[self.location]["cost"] < 200:     # we want to be safe, keeping at least 250 $ before making an investment
+            if self.balance - properties[self.location]["cost"] < 200:     # we want to be safe, keeping at least 200 $ before making an investment
                 print(f"{self.name} doesn't have enough money to buy {self.location}")
                 pass
             else:
@@ -248,7 +248,6 @@ def init_player(num_pl, ROI_type):
     board.players = players  # initialize the board with the players
 
     return board, TestArray
-
 
 # Function that prints out the properties owned by each player
 def print_player_properties(players):
